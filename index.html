@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="imgti"><img src="images/perritoygatito.png"></div>
+    <div class="titucen">
+        <h1 class="title">Veterinaria Huellitas</h1><br><br>
+    </div>
+
+    <div class="flexy">
+        <div class="sostener"> <img src="images/perroS.png"></div>
+        <div class="sostener2"> <img src="images/gatoS.png"></div>
+    </div>
+
+    <div class=" gridc">
+
+        <div class="contenedor">
+
+
+            <form id="cita-form">
+
+                <br>
+                <label for="nombred">Nombre del dueño: </label>
+                <input type="text" id="nombred" required>
+
+
+                <label for="nombre">Nombre de tu mascota:</label>
+                <input type="text" id="nombre" required>
+
+
+                <label for="telefono">Numero de telefono:</label>
+                <input type="number" id="numero" required>
+
+
+                <label for="tipo">Tipo de mascota:</label>
+
+                <select id="tipo" name="tipo">
+
+                    <option value="perro">Canino</option>
+                    <option value="gato">Felino</option>
+                    <option value="ave">Ave</option>
+                    <option value="reptil">Reptil</option>
+                    <option value="pez">pez</option>
+                </select>
+
+                <label for="fecha">Fecha:</label>
+                <input type="date" id="fecha" required>
+
+                <label for="hora">Hora:</label>
+                <input type="time" id="hora" required>
+
+                <label for="sinto">Sintomas:</label>
+                <input type="text" id="sinto" class="grande">
+
+                <input type="submit" value="Agendar Cita">
+
+            </form>
+
+        </div>
+
+        <div class="contenedor2">
+            <div class="citas-list" id="citas-list"><!-- Aquí se mostrarán las citas agendadas -->
+
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous">
+    </script>
+
+    <script>
+        const imagenesMascotas = {
+            perro: "images/caninos.png",
+            gato: "images/felinos.png",
+            ave: "images/aves.png",
+            reptil: "images/reptil.png",
+            pez: "images/pez.png",
+        };
+
+        document.getElementById("cita-form").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            var nombred = document.getElementById("nombred").value;
+            var nombre = document.getElementById("nombre").value;
+            var tipo = document.getElementById("tipo").value;
+            var sinto = document.getElementById("sinto").value;
+            var fecha = document.getElementById("fecha").value;
+            var hora = document.getElementById("hora").value;
+
+            var imagenURL = imagenesMascotas[tipo];
+
+            var citaElement = document.createElement("div");
+            citaElement.className = "cita";
+            var citaId = "cita-" + new Date().getTime(); // Crear un ID único para cada cita
+            citaElement.id = citaId; // Asignar el ID a la cita
+
+            citaElement.innerHTML =
+                "<img src='" + imagenURL + "' alt='Imagen de la mascota'>" +
+                "<p><strong>Nombre del dueño:</strong> " + nombred + "</p>" +
+                "<p><strong>Nombre de la mascota:</strong> " + nombre + "</p>" +
+                "<p><strong>Tipo de mascota:</strong> " + tipo + "</p>" +
+                "<p><strong>Sintomas:</strong> " + sinto + "</p>" +
+                "<p><strong>Fecha:</strong> " + fecha + "</p>" +
+                "<p><strong>Hora:</strong> " + hora + "</p>" +
+                "<button class='btn-editar' onclick='editarCita(\"" + citaId + "\")'>Editar</button>" +
+                "<button class='btn-borrar' onclick='borrarCita(\"" + citaId + "\")'>Borrar</button>";
+
+            var citasList = document.getElementById("citas-list");
+            citasList.appendChild(citaElement);
+
+            document.getElementById("cita-form").reset();
+        });
+
+        function editarCita(citaId) {
+            var citaDiv = document.getElementById(citaId);
+            var nombreDueño = citaDiv.querySelector("p:nth-child(2)").innerText.split(":")[1].trim();
+            var nombreMascota = citaDiv.querySelector("p:nth-child(3)").innerText.split(":")[1].trim();
+            var tipoMascota = citaDiv.querySelector("p:nth-child(4)").innerText.split(":")[1].trim();
+            var sintomas = citaDiv.querySelector("p:nth-child(5)").innerText.split(":")[1].trim();
+            var fecha = citaDiv.querySelector("p:nth-child(6)").innerText.split(":")[1].trim();
+            var hora = citaDiv.querySelector("p:nth-child(7)").innerText.split(":")[1].trim();
+
+            document.getElementById("nombred").value = nombreDueño;
+            document.getElementById("nombre").value = nombreMascota;
+            document.getElementById("tipo").value = tipoMascota;
+            document.getElementById("sinto").value = sintomas;
+            document.getElementById("fecha").value = fecha;
+            document.getElementById("hora").value = hora;
+
+            citaDiv.remove();
+        }
+
+        function borrarCita(citaId) {
+            var citaDiv = document.getElementById(citaId);
+            citaDiv.remove();
+        }
+    </script>
+</body>
+
+</html>
