@@ -1,46 +1,82 @@
-body{
-background-image: linear-gradient(to bottom, rgb(0, 30, 255), rgba(86, 144, 252, 0.432));
-padding: 0%;
-margin: 0%;
+body {
+    background-image: linear-gradient(to bottom, rgb(0, 30, 255), rgba(86, 144, 252, 0.432));
+    padding: 0%;
+    margin: 0%;
 }
 
-.imgti img{
+p {
+    font-size: 15px;
+    margin: 0;
+}
+
+.filtro-container {
+
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+
+}
+
+.botones-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 15px;
+    gap: 5px;
+}
+
+.btn-editar,
+.btn-atendido,
+.btn-eliminar{
+    padding: 10px 5px;
+    margin: 0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-atendido{
+    background-color: #e4ee54c0;
+    color: white;
+}
+
+.btn-editar {
+    background-color: #4caf50;
+    color: white;
+}
+
+.btn-eliminar {
+    background-color: #f44336;
+    color: white;
+}
+
+.imgti img {
     width: 100px;
     height: 100px;
     position: relative;
     left: 47%;
 }
 
-.titucen{
+.titucen {
     display: flex;
     justify-content: center;
 }
-.title{
+
+.title {
     color: #ff9900;
     font-size: 45px;
-    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
 }
 
-.gridc{
+.gridc {
     display: grid;
     grid-template-columns: 50% 50%;
     justify-items: center;
 }
 
 
-.contenedor{
-    width: 900px;
-    height: 900px;
-    border: 3px solid black;
-    position: relative;
-    bottom: 122px;
-    box-shadow: 13px 13px 15px 0px rgb(247, 122, 122);
-    border-radius: 100px;
-    background-color: white;
-}
-.contenedor2{
-    width: 900px;
-    height: 900px;
+.contenedor {
+    width: 650px;
+
     border: 3px solid black;
     position: relative;
     bottom: 122px;
@@ -49,7 +85,17 @@ margin: 0%;
     background-color: white;
 }
 
-.flex{
+.contenedor2 {
+    width: 790px;
+    border: 3px solid black;
+    position: relative;
+    bottom: 122px;
+    box-shadow: 13px 13px 15px 0px rgb(247, 122, 122);
+    border-radius: 100px;
+    background-color: white;
+}
+
+.flex {
     display: flex;
     justify-content: center;
     position: relative;
@@ -58,17 +104,19 @@ margin: 0%;
 
 
 
-.sostener img{
+.sostener img {
     width: 320px;
     height: 320px;
     margin-left: 30px;
 }
-.sostener2 img{
+
+.sostener2 img {
     width: 320px;
     height: 320px;
     margin-left: 30px;
 }
-.flexy{
+
+.flexy {
     display: grid;
     grid-template-columns: 50% 50%;
     justify-items: center;
@@ -82,28 +130,31 @@ h1 {
     text-align: center;
 }
 
-input, select {
+input,
+select {
     text-align: center;
     width: 600px;
     margin-bottom: 20px;
     height: 40px;
-    border-radius: 5px; 
+    border-radius: 5px;
     box-shadow: 1px 2px 1px 0px rgb(56, 131, 206);
 }
-#sinto{
+
+#sinto {
     width: 500px;
     height: 140px;
     text-align: center;
 }
 
-label{
+label {
     text-align: center;
     display: block;
     font-weight: bold;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 20px;
 }
-form{
+
+form {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -118,45 +169,44 @@ input[type="submit"] {
 }
 
 .cita {
-    border: 3px solid #0400fb;
-    width: 260px;
-    height: 410px;
-    margin: 20px;
+
+    display: flex;
     border-radius: 10px;
     color: black;
-}
-.cita:hover{
-    background-color: aquamarine;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: column;
+    box-shadow: 0 4px 8px rgb(0, 0, 0);
+    background-color: #9b6c262f;
+    padding: 2%;
 }
 
-#citas-list{
+.cita:hover {
+    background-color: rgb(255, 185, 127);
+}
+
+#citas-list {
     display: grid;
-    grid-template-columns: 31% 31% 31%;
+    grid-template-columns: 50% 50%;
+    justify-content: center;
+    align-items: center;
     justify-items: center;
-    margin-left: 5%;
+    align-content: center;
+    gap: 40px;
+    padding: 5%;
 }
 
-img, svg {
+img,
+svg {
     vertical-align: middle;
     height: 180px;
     width: 220px;
 }
 
 
-@media screen and (max-width:1800px){
-    .contenedor{
+@media screen and (max-width:1800px) {
+    .contenedor {
         width: 600px;
-        height: 600px;
-        border: 3px solid black;
-        position: relative;
-        bottom: 122px;
-        box-shadow: 13px 13px 15px 0px rgb(247, 122, 122);
-        border-radius: 100px;
-        background-color: white;
-    }
-    .contenedor2{
-        width: 600px;
-        height: 600px;
         border: 3px solid black;
         position: relative;
         bottom: 122px;
@@ -165,32 +215,82 @@ img, svg {
         background-color: white;
     }
 
-
-    .cita {
-        border: 2px solid #0400fb;
-        width: 200px;
-        height: 310px;
-        margin: 20px;
-        border-radius: 10px;
-        color: black;
+    .contenedor2 {
+        width: 650px;
+        border: 3px solid black;
+        position: relative;
+        bottom: 122px;
+        box-shadow: 13px 13px 15px 0px rgb(247, 122, 122);
+        border-radius: 100px;
+        background-color: white;
     }
-    .cita:hover{
-        background-color: aquamarine;
+
+    .botones-container {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 15px;
+    }
+
+    .btn-editar,
+    .btn-atendido,
+    .btn-eliminar{
+        padding: 10px 5px;
+        margin: 0;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
     }
     
-    #citas-list{
-        display: grid;
-        grid-template-columns: 45% 50%;
-        justify-items: center;
-        /* margin-left: 5%; */
+    .btn-atendido{
+        background-color: #e4ee54c0;
+        color: white;
+    }
+    
+    .btn-editar {
+        background-color: #4caf50;
+        color: white;
+    }
+    
+    .btn-eliminar {
+        background-color: #f44336;
+        color: white;
     }
 
-    input, select {
+    .cita {
+
+        display: flex;
+        border-radius: 10px;
+        color: black;
+        flex-wrap: wrap;
+        justify-content: center;
+        flex-direction: column;
+        box-shadow: 0 4px 8px rgb(0, 0, 0);
+        background-color: #9b6c262f;
+
+    }
+
+    .cita:hover {
+        background-color: rgb(255, 185, 127);
+    }
+
+    #citas-list {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        justify-content: center;
+        align-items: center;
+        justify-items: center;
+        align-content: center;
+        gap: 40px;
+        padding: 5%;
+    }
+
+    input,
+    select {
         text-align: center;
         width: 300px;
         margin-bottom: 20px;
-        height: 20px;
-        border-radius: 5px; 
+        height: 40px;
+        border-radius: 5px;
         box-shadow: 1px 2px 1px 0px rgb(56, 131, 206);
     }
 
@@ -206,20 +306,33 @@ img, svg {
         color: white;
         border: none;
         cursor: pointer;
-        height: 30px;
+        height: 40px;
     }
-    p{
-        font-size: 10px;
+
+    p {
+        font-size: 15px;
+        margin: 0;
     }
-    img, svg {
-        height: 80px;
-        width: 120px;
+
+    img,
+    svg {
+        height: 100px;
+        width: 140px;
         margin-left: 18%;
     }
+
     .imgti img {
         width: 100px;
         height: 100px;
         position: relative;
         left: 29%;
     }
+
+    .filtro-container {
+
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+    
     }
+}
